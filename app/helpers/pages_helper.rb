@@ -15,4 +15,14 @@ module PagesHelper
     json = JSON.parse(open("#{@source_url}/v3/link/language?access_token=#{@access_token}&link=#{url}").read)
     @lang = json['data']['languages'][url]
   end
+  
+  def get_title(url)
+    json = JSON.parse(open("#{@source_url}/v3/link/info?access_token=#{@access_token}&link=#{url}").read)
+    @title = json['data']
+    return @title
+  end
+  def get_sentiment(url)
+    json = JSON.parse(open("#{@nlp_base}/calls/url/URLGetTextSentiment?apikey=#{@nlp_key}&url=#{url}&outputMode=json").read)
+    @sentiment = json['docSentiment']['type']
+  end
 end

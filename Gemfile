@@ -4,6 +4,7 @@ gem 'rails', '3.2.3'
 gem 'jquery-rails'
 gem 'sqlite3'
 gem 'linguo'
+gem 'metainspector'
 # gem 'linguo', :git => 'git://github.com/NARKOZ/linguo.git'
 
 group :assets do
