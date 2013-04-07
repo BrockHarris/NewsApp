@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Thanks for signing up!"
+      sign_user_in(@user)
       redirect_to root_url
     else
     	flash[:notice] = "Please fill out the entire form."
