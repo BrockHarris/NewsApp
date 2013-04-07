@@ -25,4 +25,25 @@ module PagesHelper
     json = JSON.parse(open("#{@nlp_base}/calls/url/URLGetTextSentiment?apikey=#{@nlp_key}&url=#{url}&outputMode=json").read)
     @sentiment = json['docSentiment']['type']
   end
+  def parsely
+    @pjson = JSON.parse(open("#{@parsely_base}/shares/posts?apikey=#{@parsely_api_key}").read)
+   # @purl =  @pjson['data']['url']
+    #@ptitle = @pjson['data']['title']
+    #@pthumb = @pjson['data']['thumb_url_medium']
+    @presult = @pjson['data']
+  end
+  
+  def sentiment_return(title, url, thumb)
+   sentiment= get_sentiment(url) 
+  if sentiment == "positive" 
+     @sreturn = link_to title, url, {:style => 'color: #008000'} 
+  elsif sentiment == "negative" 
+    @sreturn = link_to title, url, {:style => 'color: #FF0000'} 
+  else 
+    @sreturn = link_to title, url 
+   end 
+   @sreturn += image_tag(thumb, :size => "100x100") unless thumb == nil
+   @sreturn += "<br />".html_safe
+   return @sreturn.html_safe
+  end
 end
