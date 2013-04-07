@@ -1,1 +1,10 @@
 <h1>News Feed:</h1>
+<%= get_data("highvalue") %>
+<br />
+<b>Links</b>
+<br />
+<%= @result.each do |result| %>
+<%= link_to "Link", result %>
+<br />
+<% end %>
+<%= @result.inspect %>
