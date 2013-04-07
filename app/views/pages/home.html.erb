@@ -1,10 +1,20 @@
-<!--
-<h3>Top phrases</h3>
-
-<%# get_data("highvalue") %>
-  <%# @result.each do |result| %>
-  <%#= result %><br />
-<%# end %> -->
+<h1>News Feed:</h1>
+<% get_data("toplinks") %>
+<br />
+<b>Top phrases</b>
+<br /><br />
+<% @result.each do |result| %>
+<% phrase = result['phrase'] %>
+	<% result['urls'].each do |urls| %>
+		<% link = urls['aggregate_url'] %>
+		<% language = get_lang(link) %>
+		<% if language == "en" %>
+			<%= "#{phrase} #{link}" %>
+		<% end %>
+	<% end %>
+<br />
+<% end %>
+<br />
 
 <div class="image_tile">
 </div>

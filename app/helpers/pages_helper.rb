@@ -10,4 +10,9 @@ module PagesHelper
         @result = "Wrong Datatype"
       end
   end
+  
+  def get_lang(url)
+    json = JSON.parse(open("#{@source_url}/v3/link/language?access_token=#{@access_token}&link=#{url}").read)
+    @lang = json['data']['languages'][url]
+  end
 end
