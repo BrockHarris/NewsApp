@@ -5,5 +5,7 @@ class PagesController < ApplicationController
 
 		@return_top_links = "#{@source_url}/v3/realtime/bursting_phrases?access_token=#{@access_token}&limit=10"
 
+		@search_url = "#{@source_url}/v3/search?access_token=#{@access_token}&query=#{@query}&limit=10&fields=aggregate_link%2Ctitle%2Curl"
+		@query = "sample"
 	end
 end
