@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   require 'json'
   
 	def home
+		@user = User.new
 		@source_url = "https://api-ssl.bitly.com"
 		@access_token = "4d8175b24369da3c224352ebf1687e513cc714b9"
 		@nlp_key = "9f0aec9447486a35afa39bd94ca67203fde92800"

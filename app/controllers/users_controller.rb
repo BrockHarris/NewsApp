@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
-	def create
+	
+  def new
+    @user = User.new
+  end
+
+  def create
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Thanks for signing up!"
@@ -7,6 +12,7 @@ class UsersController < ApplicationController
     else
     	flash[:notice] = "Please fill out the entire form."
       redirect_to (:back)
+    end
   end
   
   def show

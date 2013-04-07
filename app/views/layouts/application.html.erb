@@ -5,10 +5,14 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+  
+</script> 
 </head>
 <body>
 	<div class="header">
 	    <%= link_to "Newsfeed", root_url %>
+	    <li><%= link_to "Sign up", new_user_path, :id =>"signup" %></li>
 	</div>
 
 	<%= yield %>
