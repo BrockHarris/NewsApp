@@ -4,6 +4,7 @@ gem 'rails', '3.2.3'
 gem 'jquery-rails'
 gem 'sqlite3'
 gem 'linguo'
+gem 'fancybox-rails'
 # gem 'linguo', :git => 'git://github.com/NARKOZ/linguo.git'
 
 group :assets do
@@ -13,5 +14,5 @@ group :assets do
 end
 
 group :development do
-  gem 'better_errors'
+  #gem 'better_errors'
 end
