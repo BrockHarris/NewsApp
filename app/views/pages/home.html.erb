@@ -1,9 +1,12 @@
-<% get_data("highvalue") %>
+
+<h1>News Feed:</h1>
+<% get_data("toplinks") %>
 <br />
-<b>Links</b>
-<br />
+<b>Top phrases</b>
+<br /><br />
 <% @result.each do |result| %>
-<%= link_to result, result %>
-<br />
+<%= result['phrase'] %>
+<br /><br />
 <% end %>
+
 
