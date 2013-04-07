@@ -1,6 +1,30 @@
 
+<h1>News Feed:</h1>
+<% get_data("highvalue") %>
+<% @result.each do |result| %>
+	<% page = MetaInspector.new(result) %>
+	<% sentiment= get_sentiment(result) %>
+	<% if sentiment = "positive" %>
+		<%= link_to page.title, result, {:style => 'color: #008000'} %>
+	<% elsif sentiment = "negative" %>
+		<%= link_to page.title, result, {:style => 'color: #FF0000'} %>
+	<% else %>
+		<%= link_to page.title, result %>
+	<% end %>
+	<%= image_tag(page.image, :size => "100x100") unless page.image == nil %>
+	<%= sentiment %>
+	<br />
+<% end %>
+<br />
 
 
+
+<br />
+<h3>Sentiment</h3>
+<%= get_sentiment("http://www.tvguide.com/News/Kardashian-Lawsuit-Step-Mom-1063662.aspx") %>
+<h3>Settings:</h3>
+ 
 
 <div class="image_tile">
 </div>
+
