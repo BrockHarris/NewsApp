@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.3'
 gem 'jquery-rails'
 gem 'sqlite3'
+gem 'linguo'
+# gem 'linguo', :git => 'git://github.com/NARKOZ/linguo.git'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

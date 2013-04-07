@@ -4,12 +4,16 @@
 <b>Top phrases</b>
 <br /><br />
 <% @result.each do |result| %>
-<%= result['phrase'] %>
-<br /><br />
+<% phrase = result['phrase'] %>
+	<% result['urls'].each do |urls| %>
+		<% link = urls['aggregate_url'] %>
+		<% language = get_lang(link) %>
+		<% if language == "en" %>
+			<%= "#{phrase} #{link}" %>
+		<% end %>
+	<% end %>
+<br />
 <% end %>
 <br />
-<%= #@result.methods 
-%>
-
 <h3>Settings:</h3>
 
