@@ -1,25 +1,19 @@
 <h1>News Feed:</h1>
+<% parsely %>
+<% @presult.each do |presult| %>
+	<% purl = presult['url']%>
+	<% ptitle = presult['title'] %>
+	<% pthumb = presult['thumb_url_medium'] %>
+	<%= sentiment_return(ptitle, purl, pthumb) %>
+<% end %>
+<br />
 <% get_data("highvalue") %>
 <% @result.each do |result| %>
 	<% page = MetaInspector.new(result) %>
-	<% sentiment= get_sentiment(result) %>
-	<% if sentiment = "positive" %>
-		<%= link_to page.title, result, {:style => 'color: #008000'} %>
-	<% elsif sentiment = "negative" %>
-		<%= link_to page.title, result, {:style => 'color: #FF0000'} %>
-	<% else %>
-		<%= link_to page.title, result %>
-	<% end %>
-	<%= image_tag(page.image, :size => "100x100") unless page.image == nil %>
-	<%= sentiment %>
+	<%= sentiment_return(page.title, result, page.image)%>
 	<br />
 <% end %>
 <br />
-
-
-<br />
-<h3>Sentiment</h3>
-<%= get_sentiment("http://www.tvguide.com/News/Kardashian-Lawsuit-Step-Mom-1063662.aspx") %>
 <h3>Settings:</h3>
  
 
